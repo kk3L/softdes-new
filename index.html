@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <title>Home</title>
+</head>
+<body>
+    <div>
+        <img src="/images/teethbg.jpg" class="background">
+    </div>
+    <div class="hamburger-icon" onmouseover="showOverlay()">
+        <a class="in" href="#"><i class="ri-menu-line"></i></a>
+        <div class="popup-container" id="overlay" onmouseover="showOverlay()" onmouseout="hideOverlay()">
+            <ul id="sublist">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="mydentists.html">My Dentists</a></li>
+            </ul>
+        </div>
+    </div>
+    <section class="forms-section">
+        <div class="forms">
+          <div class="form-wrapper is-active">
+            <button type="button" class="switcher switcher-login">
+              Login
+              <span class="underline"></span>
+            </button>
+            <form id="login-form" class="form form-login">
+              <fieldset>
+                <legend>Please, enter your email and password for login.</legend>
+                <div class="input-block">
+                  <label for="login-email">E-mail</label>
+                  <input id="login-email" type="email" required>
+                </div>
+                <div class="input-block">
+                  <label for="login-password">Password</label>
+                  <input id="login-password" type="password" required>
+                </div>
+              </fieldset>
+              <button type="button" class="forgot-password">Forgot Password?</button>
+              <button type="submit" class="btn-login">Login</button>
+              <a class="continue-g" href="home.html">Continue as Guest</a>
+            </form>
+          </div>
+          <div class="form-wrapper">
+            <button type="button" class="switcher switcher-signup">
+              Sign Up
+              <span class="underline"></span>
+            </button>
+            <form id="signin-form" class="form form-signup">
+              <fieldset>
+                <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                <div class="input-block">
+                  <label for="signup-email">E-mail</label>
+                  <input id="signup-email" type="email" required>
+                  <div id="errorEmail" class="error"></div>
+                </div>
+                <div class="input-block">
+                  <label for="signup-password">Password</label>
+                  <input id="signup-password" type="password" required>
+                  <div id="errorPassword" class="error"></div>
+                </div>
+                <div class="input-block">
+                  <label for="signup-password-confirm">Confirm password</label>
+                  <input id="signup-password-confirm" type="password" required>
+                  <div id="errorConfirm" class="error"></div>
+                </div>
+              </fieldset>
+              <button type="submit" class="btn-signup">Continue</button>
+            </form>
+      
+          </div>
+        </div>
+      </section>
+      <form class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+          <h2>Continue Signing in</h2>
+          <div class="form-element">
+            <input type="text" id="UserName" placeholder="Username.." required>
+            <div id="usernameVAL" class="error"></div>
+          </div>
+          <div class="form-element">
+            <input type="text" id="FirstName" placeholder="First Name.." required>
+            <div id="FnameVAL" class="error"></div>
+          </div>
+          <div class="form-element">
+            <input type="text" id="LastName" placeholder="Last Name.." required>
+            <div id="LnameVAL" class="error"></div>
+          </div>
+          <div class="form-element">
+            <input type="text" id="MiddleInitial" placeholder="Middle Initial">
+            <div id="middleVAL" class="error"></div>
+          </div>
+          <div class="form-element">
+            <input type="text" id="StudentNumber" placeholder="Student No.*" required>
+            <div id="stuNoVAL" class="error"></div>
+          </div>
+          <div class="form-element">
+            <input type="text" id="ContactNumber" placeholder="Contact No.*" required>
+            <div id="ContVAL" class="error"></div>
+          </div>
+          <div class="form-element">
+            <label for="IDUpload">Upload Scanned ID</label>
+            <input type="file" name="ID_pic" id="IDUpload" accept="image/*" required>
+            <div id="idVAL" class="error"></div>
+          </div>
+          <div class="form-element">
+            <button class="signup-btn" id="singup-btn">Sign Up</button>
+          </div>
+        </div>
+      </form>
+</body>
+</html>
