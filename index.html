@@ -1,116 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="index.css">
-        <title>Home</title>
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div>
-        <img src="/images/teethbg.jpg" class="background">
+    <div class="top-bar"></div>
+    <div class="profile-icon"></div>
+    <div class="menu-btn">
+        <div class="menu-btn_burger"></div>
     </div>
-    <div class="hamburger-icon" onmouseover="showOverlay()">
-        <a class="in" href="#"><i class="ri-menu-line"></i></a>
-        <div class="popup-container" id="overlay" onmouseover="showOverlay()" onmouseout="hideOverlay()">
-            <ul id="sublist">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="appointments.html">Appointments</a></li>
-                <li><a href="mydentists.html">My Dentists</a></li>
-            </ul>
+    <div class="menu-box">
+        <a href="Home">Home</a>
+        <a href="Appointments">Appointments</a>
+        <a href="My Dentists">My Dentists</a>
+    </div>
+    <div class="wrapper">
+        <div class="form-wrapper sign-in">
+            <form id="login-form"> <!--login form-->
+                <h2>Login</h2>
+                <div class="input-group">
+                    <input id="patient-email" type="text" type="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-group">
+                    <input id="patient-password"type="password" required maxlength="20">
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label><input type="checkbox"> Remember Me </label>
+                </div>
+                <button id="btn-login" type="submit">Login</button>
+                <div class="signUp-link">
+                    <p> Don't have an account? <a href="#" class="signUpButton-link">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-wrapper sign-up">
+            <form class="signin-form"> <!--signin form-->
+                <h2>Sign Up</h2>
+                <div class="input-group">
+                    <input id="signup-email" type="text" type="email" required>
+                    <label for="">Email</label>
+                </div>  
+                <div class="input-group">
+                    <input id= "signup-password" type="password" required>
+                    <label for="" >Password</label>
+                </div>
+                <div class="input-group">
+                    <input id= "signup-password-confirm" type="password" required>
+                    <label for="">Confirm Password</label>
+                </div>
+                <div class="remember">
+                    <label><input type="checkbox"> I agree to the terms and conditions. </label>
+                </div>
+                <button class ="btn-signup" type="submit">Sign Up</button>
+                <div class="signUp-link">
+                    <p> Already have an account? <a href="#" class="signInButton-link">Sign In</a></p>
+                </div>
+            </form>   
         </div>
     </div>
-    <section class="forms-section">
-        <div class="forms">
-          <div class="form-wrapper is-active">
-            <button type="button" class="switcher switcher-login">
-              Login
-              <span class="underline"></span>
-            </button>
-            <form id="login-form" class="form form-login">
-              <fieldset>
-                <legend>Please, enter your email and password for login.</legend>
-                <div class="input-block">
-                  <label for="login-email">E-mail</label>
-                  <input id="login-email" type="email" required>
-                </div>
-                <div class="input-block">
-                  <label for="login-password">Password</label>
-                  <input id="login-password" type="password" required>
-                </div>
-              </fieldset>
-              <button type="button" class="forgot-password">Forgot Password?</button>
-              <button type="submit" class="btn-login">Login</button>
-              <a class="continue-g" href="home.html">Continue as Guest</a>
-            </form>
-          </div>
-          <div class="form-wrapper">
-            <button type="button" class="switcher switcher-signup">
-              Sign Up
-              <span class="underline"></span>
-            </button>
-            <form id="signin-form" class="form form-signup">
-              <fieldset>
-                <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-                <div class="input-block">
-                  <label for="signup-email">E-mail</label>
-                  <input id="signup-email" type="email" required>
-                  <div id="errorEmail" class="error"></div>
-                </div>
-                <div class="input-block">
-                  <label for="signup-password">Password</label>
-                  <input id="signup-password" type="password" required>
-                  <div id="errorPassword" class="error"></div>
-                </div>
-                <div class="input-block">
-                  <label for="signup-password-confirm">Confirm password</label>
-                  <input id="signup-password-confirm" type="password" required>
-                  <div id="errorConfirm" class="error"></div>
-                </div>
-              </fieldset>
-              <button type="submit" class="btn-signup">Continue</button>
-            </form>
-      
-          </div>
-        </div>
-      </section>
-      <form class="popup">
+    <!--popup for form continue signin--> 
+    <form class="popup">
         <div class="close-btn">&times;</div>
         <div class="form">
           <h2>Continue Signing in</h2>
           <div class="form-element">
-            <input type="text" id="UserName" placeholder="Username.." required>
-            <div id="usernameVAL" class="error"></div>
+            <input type="text" id="FirstName" placeholder="First Name" required>
           </div>
           <div class="form-element">
-            <input type="text" id="FirstName" placeholder="First Name.." required>
-            <div id="FnameVAL" class="error"></div>
+            <input type="text" id="LastName" placeholder="Last Name" required>
           </div>
           <div class="form-element">
-            <input type="text" id="LastName" placeholder="Last Name.." required>
-            <div id="LnameVAL" class="error"></div>
+            <input type="text" id="Age" placeholder="Age" required>
           </div>
           <div class="form-element">
-            <input type="text" id="MiddleInitial" placeholder="Middle Initial">
-            <div id="middleVAL" class="error"></div>
+            <input type="date" id="DOB" placeholder="Date of Birth" required>
           </div>
           <div class="form-element">
-            <input type="text" id="StudentNumber" placeholder="Student No.*" required>
-            <div id="stuNoVAL" class="error"></div>
+            <input type="text" id="Gender" placeholder="Gender" required>
           </div>
           <div class="form-element">
-            <input type="text" id="ContactNumber" placeholder="Contact No.*" required>
-            <div id="ContVAL" class="error"></div>
+            <input type="text" id="Address" placeholder="Address" required>
           </div>
           <div class="form-element">
-            <label for="IDUpload">Upload Scanned ID</label>
-            <input type="file" name="ID_pic" id="IDUpload" accept="image/*" required>
-            <div id="idVAL" class="error"></div>
+            <input type="text" id="Phone" placeholder="Contact Number" required>
           </div>
           <div class="form-element">
-            <button class="signup-btn" id="singup-btn">Sign Up</button>
+            <input type="text" id="ECN" placeholder="Emergency Contact Name" required>
+          </div>
+          <div class="form-element">
+            <input type="text" id="ECR" placeholder="Emergency Contact Relationship" required>
+          </div>
+          <div class="form-element">
+            <input type="text" id="ECP" placeholder="Emergency Contact Phone" required>
+          </div>
+          <div class="form-element">
+            <button type="submit" class="signup-btn">Sign Up</button>
           </div>
         </div>
-      </form>
+    </form>
+
+
+    <script src="menu.js"></script>
+    <script src="login.js"></script>
+    <script src="signup.js"></script>
 </body>
-</html>
+</html>     

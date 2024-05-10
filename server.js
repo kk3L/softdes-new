@@ -4,7 +4,7 @@ const cors = require('cors')
 
 const Proutes = require('./routes/api/patient.js');
 const Approutes = require('./routes/api/appointment.js');
-const Schedrouts = require('./routes/api/dentistschedule.js');
+const Schedroutes = require('./routes/api/dentistschedule.js');
 const Dentroutes = require('./routes/api/dentist.js');
 
 app.use(express.json({ extended: false}));
@@ -13,7 +13,7 @@ app.use(cors());
 
 app.use('/patient', Proutes);
 app.use('/appointment', Approutes);
-app.use('/dentistschedule', Schedrouts);
+app.use('/dentistschedule', Schedroutes);
 app.use('/dentist', Dentroutes);
 
 app.get('/',(req, res)=>{
