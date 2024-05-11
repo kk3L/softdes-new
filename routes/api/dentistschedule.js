@@ -8,7 +8,7 @@ router.post('/addApp', (req, res) => {
     req.body.schedAvail = req.body.schedAvail || "available";
     const { dentistID, scheduleDate, serviceType, scheduleDay, startTime, endTime } = req.body;
 
-    const sqlQuery = `INSERT INTO appointment (dentistID, scheduleDate, serviceType, scheduleDay, startTime, endTime) 
+    const sqlQuery = `INSERT INTO dentistschedule (dentistID, scheduleDate, serviceType, scheduleDay, startTime, endTime) 
                       VALUES (?, ?, ?, ?, ?, ?)`;
 
     const values = [dentistID, scheduleDate, serviceType, scheduleDay, startTime, endTime];
@@ -23,4 +23,18 @@ router.post('/addApp', (req, res) => {
     });
 });
 
+//showing appointment in tab
+router.get('/showApp', (req, res) => {
+
+    const sqlQuery = `SELECT * FROM dentistschedule`;
+  
+    databaseConn.query(sqlQuery, function(error, results, fields) {
+      if (error) {
+        console.error('Error executing SQL query', error);
+        return res.status(500).json({ success: false, message: "Error executing SQL query" });
+      }
+      console.log('SQL query executed successfully');
+      res.status(200).json(results);
+    });
+  });
 module.exports = router;
