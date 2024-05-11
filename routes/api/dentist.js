@@ -102,6 +102,20 @@ router.post('/loginDentist', async (req, res) => {
 });
 
 
+router.get('/checkEmail/:dentistEmail', (req, res) => {
+    const email = req.params.patientEmail; // Extract email from request parameters
+    
+    const sqlQuery = `SELECT * FROM dentist WHERE dentistEmail = ?`;
+    
+    databaseConn.query(sqlQuery, [email], function(error, results, fields) {
+        if (error) {
+            console.log('Error executing SQL query', error); // Log the error
+            return res.status(500).json({ success: false, message: "Error executing SQL query" });
+        }
+        console.log('SQL query executed successfully'); // Log the success
+        res.status(200).json(results);
+    });
+});
 
 
 module.exports = router;

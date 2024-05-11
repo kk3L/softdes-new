@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="dindex.css">
+</head>
+<body>
+    <div class="top-bar"></div>
+    <div class="profile-icon"></div>
+    <div class="menu-btn">
+        <div class="menu-btn_burger"></div>
+    </div>
+    <div class="menu-box">
+        <a href="Home">Home</a>
+        <a href="My Appointments">Appointments</a>
+        <a href="Requests">My Dentists</a>
+    </div>
+    <div class="wrapper">
+        <div class="form-wrapper sign-in">
+            <form id="login-form"> <!--login form-->
+                <h2>Login</h2>
+                <div class="input-group">
+                    <input id="dentist-email" type="text" type="email" required>
+                    <label for="">Email</label>
+                </div>
+                <div class="input-group">
+                    <input id="dentist-password"type="password" required maxlength="20">
+                    <label for="">Password</label>
+                </div>
+                <div class="remember">
+                    <label><input type="checkbox"> Remember Me </label>
+                </div>
+                <button id="btn-login" type="submit">Login</button>
+                <div class="signUp-link">
+                    <p> Don't have an account? <a href="#" class="signUpButton-link">Sign Up</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-wrapper sign-up">
+            <form class="signin-form"> <!--signin form-->
+                <h2>Sign Up</h2>
+                <div class="input-group">
+                    <input id="signup-email" type="text" type="email" required>
+                    <label for="">Email</label>
+                </div>  
+                <div class="input-group">
+                    <input id= "signup-password" type="password" required>
+                    <label for="" >Password</label>
+                </div>
+                <div class="input-group">
+                    <input id= "signup-password-confirm" type="password" required>
+                    <label for="">Confirm Password</label>
+                </div>
+                <div class="remember">
+                    <label><input type="checkbox"> I agree to the terms and conditions. </label>
+                </div>
+                <button class ="btn-signup" type="click">Sign Up</button>
+                <div class="signUp-link">
+                    <p> Already have an account? <a href="#" class="signInButton-link">Sign In</a></p>
+                </div>
+            </form>   
+        </div>
+    </div>
+    <!--popup for form continue signin--> 
+    <form class="popup">
+        <div class="close-btn">&times;</div>
+        <div class="form">
+          <h2>Continue Signing in</h2>
+          <div class="form-element">
+            <input type="text" id="FirstName" placeholder="First Name" required>
+          </div>
+          <div class="form-element">
+            <input type="text" id="LastName" placeholder="Last Name" required>
+          </div>
+          <div class="form-element">
+            <input type="date" id="DOB" placeholder="Date of Birth" required>
+          </div>
+          <div class="form-element">
+            <input type="text" id="Gender" placeholder="Gender" required>
+          </div>
+          <div class="form-element">
+            <input type="text" id="Address" placeholder="Address" required>
+          </div>
+          <div class="form-element">
+            <input type="text" id="Phone" placeholder="Contact Number" required>
+          </div>
+          <div class="form-element">
+            <button type="click" class="signup-btn" id="signup-btn2">Sign Up</button>
+          </div>
+        </div>
+    </form>
+
+
+    <script src="menu.js"></script>
+    <script src="logindentist.js"></script>
+    <script src="signupdentist.js"></script>
+    <script src="signupdentist-2.js"></script>
+</body>
+</html>     
