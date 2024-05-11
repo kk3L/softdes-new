@@ -37,14 +37,12 @@ document.querySelector(".btn-signup").addEventListener("click", function(event) 
             var form = document.querySelector(".signin-form");
             var password = document.getElementById("signup-password").value;
             var confirmPassword = document.getElementById("signup-password-confirm").value;
-            alert(password);
-            alert(password);
             // Check if the password length is between 8 and 20 characters
             if (password.length < 8 || password.length >= 20) {
                 alert("Password must be between 8 and 20 characters.");
                 return;
             }else{
-                console.log('NIGGA');
+                console.log("Password must be between 8 and 20 characters.");
             }
 
             if (form.checkValidity()) {
