@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #c5fffc;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    margin-top: 50px;
+}   
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+.profile-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 55px;
+    height: 55px;
+    background-color: #585555;
+    border-radius: 50%;
+    z-index: 1010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post-appointment-btn {
+    position: fixed;
+    top: 100px;
+    right: 35px;
+    padding: 15px 25px;
+    background-color: #585555;
+    color: #ba9536;
+    border-radius: 25px;
+    z-index: 1010;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.post-appointment-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.menu-box {
+    position: fixed;
+    top: 90px;
+    left: 10px;
+    width: 200px;
+    background-color: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1010;
+}
+
+.menu-box a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-box a:hover {
+    background-color: #f0f0f03a;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    z-index: 1010;
+}
+
+.menu-btn_burger {
+    width: 50px;
+    height: 6px;
+    background: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px;
+    transition: all .5s ease-in-out;
+}   
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before {
+    transform: translateY(-15px);
+}
+
+.menu-btn_burger::after {
+    transform: translateY(15px);
+}
+
+/*animation*/
+.menu-btn.open .menu-btn_burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn_burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn_burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.appointment-title {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    font-size: 35px;
+    color: #333;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.popup-container {
+    background-color: #585555;
+    color: #ba9536;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.popup-header h2 {
+    margin: 0;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.popup-content input[type="date"],
+.popup-content input[type="time"],
+.popup-content textarea,
+.popup-content button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ba9536;
+}
+
+.time-inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-input {
+    width: 48%;
+}
+
+.close-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    background-color: #585555;
+    border: 2px solid white;
+}
+
+.popup-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}

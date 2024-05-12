@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentist UI</title>
+    <link rel="stylesheet" href="dentist-appointment.css">
+</head>
+<body>
+    <div class="top-bar"></div>
+    <div class="profile-icon"></div>
+    <a href="#" class="post-appointment-btn">Post an Appointment</a>
+    <div class="menu-btn">
+        <div class="menu-btn_burger"></div>
+    </div>
+    <div class="menu-box">
+        <a href="Home">Home</a>
+        <a href="Appointments">Appointments</a>
+        <a href="My Dentists">My Dentists</a>
+    </div>
+    <div class="appointment-title">Appointments</div>
+    
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-container">
+            <div class="popup-header">
+                <h2>Appointment Creation Form</h2>
+                <span class="close-btn" id="closePopup">&times;</span>
+            </div>
+            <div class="popup-content">
+                <form id="appointmentForm">
+                    <label for="date">Date of Appointment:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="day">Appointment Day:</label>
+                    <input type="text" id="day" name="day" required>
+
+                    <div class="time-inputs">
+                        <div class="time-input">
+                            <label for="startTime">Start time:</label>
+                            <input type="time" id="startTime" name="startTime" required>
+                        </div>
+                        <div class="time-input">
+                            <label for="endTime">End time:</label>
+                            <input type="time" id="endTime" name="endTime" required>
+                        </div>
+                    </div>
+
+                    <label for="services">Type of service/s available:</label>
+                    <textarea id="services" name="services" rows="4" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
+
+    <script> /*appointment creation form*/
+        const postAppointmentBtn = document.querySelector('.post-appointment-btn');
+        const popupOverlay = document.getElementById('popupOverlay');
+        const closePopupBtn = document.getElementById('closePopup');
+
+        postAppointmentBtn.addEventListener('click', () => {
+            popupOverlay.classList.add('active');
+        });
+
+        closePopupBtn.addEventListener('click', () => {
+            popupOverlay.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
