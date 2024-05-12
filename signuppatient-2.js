@@ -27,19 +27,7 @@ document.getElementById('signup-btn2').addEventListener('click', async function(
         patientECRelation: pECR,
         patientECPhone: pECP
     };
-    alert(pfirstName);
-    alert(document.getElementById('signup-password').value);
-    alert(document.getElementById('signup-email').value);
-    alert(plastName);
-    alert(pAge);
-    alert(pAddress);
-    alert(pPhone);
-    alert(pGender);
-    alert(pECN);
-    alert(pECR);
-    alert(pECP);
-    alert(pDOB);
-
+   
     try {
         // Send AJAX request
         const jsonData = JSON.stringify(requestData);

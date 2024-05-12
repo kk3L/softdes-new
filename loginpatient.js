@@ -4,7 +4,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
    const email = document.getElementById('patient-email').value;
    const password = document.getElementById('patient-password').value;
 
-   //localStorage.setItem('email', email);
+   localStorage.setItem('email', email);
 
    fetch('http://localhost:5000/patient/loginPatient', {
       method: 'POST',
@@ -24,7 +24,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
    })
    .then(data => {
       if (data.success) {
-      window.location.href = 'home.html';
+      window.location.href = 'appointments.html';
       } else {
          console.log(data.message);
       }

@@ -117,5 +117,31 @@ router.get('/checkEmail/:dentistEmail', (req, res) => {
     });
 });
 
+//getting ID
+router.get('/viewDentist/:dentistID', (req, res) => {
+    const dentistID = req.params.dentistID;
+    
+    const sqlQuery = `SELECT * FROM dentist WHERE dentistID = ?`;
+    
+    databaseConn.query(sqlQuery, [dentistID], function(error, results, fields) {
+      if (error) {
+        console.error('Error executing SQL query', error);
+        return res.status(500).json({ success: false, message: "Error executing SQL query" });
+      }
+      console.log('SQL query executed successfully');
+      res.status(200).json(results);
+    });
+  });
+
+
+
+//View
+router.get('/viewdentist',(req,res) => {
+    sqlQuery = `SELECT * FROM dentist`;
+    databaseConn.query (sqlQuery, function(error,results,fields){
+       if(error) throw error;
+       res.status(200).json(results)
+    })
+});
 
 module.exports = router;

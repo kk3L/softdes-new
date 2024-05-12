@@ -22,7 +22,7 @@ router.post('/reqApp', (req, res) => {
         res.status(200).json({ success: true, message: 'Data inserted successfully' });
     });
 });
-
+  
 //SELECTED Appointment
 router.get('/viewApp/:appID', (req, res) => {
     const appID = req.params.appID;

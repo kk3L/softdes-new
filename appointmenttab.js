@@ -1,67 +1,80 @@
-//inprogress
-
-//showing appointments
-function fetchStudies() {
-    fetch('http://localhost:5000/appointments/apptab')
+function fetchAppointments() {
+    fetch('http://localhost:5000/dentistschedule/showApp')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
             return response.json();
         })
-        .then(studies => {
-            // Check if the grid container exists
-            const gridContainer = document.querySelector('.grid-container');
-            if (!gridContainer) {
-                console.error('Grid container not found');
-                return;
-            }
-            // Loop through the studies and create study containers
-            studies.forEach(study => {
-                const studyContainer = document.createElement('div');
-                studyContainer.classList.add('study-container');
+        .then(appoint => {
+            const dentistID = appoint[0].dentistID;
+            fetch(`http://localhost:5000/dentist/viewdentist`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(dentist => {
+                    const gridContainer = document.querySelector('.appointment-tabs');
+                    if (!gridContainer) {
+                        console.error('Grid container not found');
+                        return;
+                    }
 
-                const studyIcon = document.createElement('i');
-                studyIcon.classList.add('ri-folder-5-fill', 'study-icon');
+                    // Loop through the appointments and create appointment containers
+                    appoint.forEach(densched => {
+                        if (densched.schedAvail !== 'available') {
+                            return;
+                        }
 
-                const studyContent = document.createElement('div');
-                studyContent.classList.add('study-content');
+                        const name = dentist.find(record => record.dentistID === densched.dentistID);
+                        if (!name) {
+                            console.error(`no ID no entry NIGGA ${study.dentistID}`);
+                            return;
+                        }
 
-                const title = document.createElement('h2');
-                title.textContent = study.PD_Title;
+                        const mainContainer = document.querySelector('.appointment-tabs');
 
-                const author = document.createElement('p');
-                author.classList.add('study-author');
-                author.innerHTML = `<strong>Author:</strong> ${study.PD_Author} - ${study.Date_Published}`;
+                        const appContainer2 = document.createElement('div');
+                        appContainer2.classList.add('appointment-row');
 
-                const abstract = document.createElement('p');
-                abstract.classList.add('study-abstract');
-                abstract.innerHTML = `<strong>Abstract:</strong> ${study.PD_Abstract}`;
+                        const appContainer = document.createElement('div');
+                        appContainer.classList.add('appointment-tab');
 
-                const pdId = document.createElement('p');
-                pdId.classList.add('study-pi-id');
-                pdId.innerHTML = `<strong>PI ID:</strong> ${study.PD_ID}`;
+                        const author = document.createElement('h2');
+                        author.classList.add('dentist');
+                        author.innerHTML = `<strong>Dentist:</strong> ${name.dentistFirstName} ${name.dentistLastName}`;
 
-                // Add click event listener to each study container
-                studyContainer.addEventListener('click', () => {
-                    // Store the PD_ID in local storage
-                    localStorage.setItem('selectedStudyPDID', study.PD_ID);
-                    // Redirect to inside.html
-                    window.location.href = 'inside.html';
-                });
+                        const schedule = document.createElement('a');
+                        schedule.classList.add('schedule');
+                        const isoDateString = densched.scheduleDate;
+                        const date = new Date(isoDateString); // Convert ISO 8601 string to JavaScript Date object
+                        const formattedDate = date.toISOString().split('T')[0]; // Extract date part from ISO string
+                        schedule.innerHTML = `<strong>Schedule:</strong> ${formattedDate}, ${densched.scheduleDay} | ${densched.startTime} - ${densched.endTime}`;
 
-                studyContent.appendChild(title);
-                studyContent.appendChild(author);
-                studyContent.appendChild(abstract);
-                //studyContent.appendChild(pdId);
+                        const button = document.createElement('button');
+                        button.classList.add('sched-app');
+                        button.innerHTML = `<strong>Schedule Appointment</strong>`;
 
-                studyContainer.appendChild(studyIcon);
-                studyContainer.appendChild(studyContent);
+                        // Add click event listener to each appointment container
+                        button.addEventListener('click', () => {
+                            localStorage.setItem('selectedappID', densched.appID);
+                            window.location.href = 'inside-appointment.html';
+                        });
 
-                gridContainer.appendChild(studyContainer);
-            });
+                        appContainer.appendChild(author);
+                        appContainer.appendChild(schedule);
+                        appContainer.appendChild(button);
+
+                        appContainer2.appendChild(appContainer);
+
+                        mainContainer.appendChild(appContainer2);
+                    });
+                })
+                .catch(error => console.error('Error fetching appointments:', error));
         })
-        .catch(error => console.error('Error fetching studies:', error));
+        .catch(error => console.error('Error fetching appointments:', error));
 }
 
-window.onload = fetchStudies;
+fetchAppointments();

@@ -116,4 +116,12 @@ router.get('/checkEmail/:patientEmail', (req, res) => {
     });
 });
 
+//View
+router.get('/view',(req,res) => {
+    sqlQuery = `SELECT * FROM patient`;
+    databaseConn.query (sqlQuery, function(error,results,fields){
+       if(error) throw error;
+       res.status(200).json(results)
+    })
+});
 module.exports = router;

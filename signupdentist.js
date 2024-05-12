@@ -16,6 +16,9 @@ document.querySelector(".btn-signup").addEventListener("click", function(event) 
 
     const checkduplicate = document.getElementById('signup-email');
     const verifyifduplicate = checkduplicate.value;
+
+    localStorage.setItem('email', email);
+
     alert(verifyifduplicate);
     if (!verifyifduplicate) {
         console.log('Email not found in local storage');
