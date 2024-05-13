@@ -30,7 +30,7 @@ function fetchAppointments() {
 
                         const name = dentist.find(record => record.dentistID === densched.dentistID);
                         if (!name) {
-                            console.error(`no ID no entry NIGGA ${study.dentistID}`);
+                            console.error(`ID ${study.dentistID}`);
                             return;
                         }
 
@@ -48,10 +48,7 @@ function fetchAppointments() {
 
                         const schedule = document.createElement('a');
                         schedule.classList.add('schedule');
-                        const isoDateString = densched.scheduleDate;
-                        const date = new Date(isoDateString); // Convert ISO 8601 string to JavaScript Date object
-                        const formattedDate = date.toISOString().split('T')[0]; // Extract date part from ISO string
-                        schedule.innerHTML = `<strong>Schedule:</strong> ${formattedDate}, ${densched.scheduleDay} | ${densched.startTime} - ${densched.endTime}`;
+                        schedule.innerHTML = `<strong>Schedule:</strong> ${moment(densched.scheduleDate).format('MM D YYYY')}, ${densched.scheduleDay} | ${densched.startTime} - ${densched.endTime}`;
 
                         const button = document.createElement('button');
                         button.classList.add('sched-app');
