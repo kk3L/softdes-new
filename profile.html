@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="top-bar"></div>
+    <div class="profile-icon"></div>
+    <div class="menu-btn">
+        <div class="menu-btn_burger"></div>
+    </div>
+    <div class="menu-box">
+        <a href="home.html">Home</a>
+        <a href="appointments.html">Appointments</a>
+        <a href="My Dentists">My Dentists</a>
+        <a href="index.html">Log Out</a>
+    </div>
+
+    <div class="content">
+        <div class="left-panel">
+            <div class="large-profile">
+                <img src="image/icon.jpg" alt="Profile Picture">
+            </div>
+            <div class="personal-details">
+                <p style="font-size: 20px;">Name: Bini BJ</p>
+                <p style="font-size: 20px;">Phone: +63 949 8700 8888</p>
+                <p style="font-size: 20px ;">Email: binibj@gmail.com</p>
+                <button class="update-profile-btn">Update Profile</button>
+            </div>
+        </div>
+    
+        <div class="personal-details-full">
+            <div class="row">
+                <label>First Name:</label>
+                <span>Bini</span>
+            </div>
+            <div class="row">
+                <label>Last Name:</label>
+                <span>BJ</span>
+            </div>
+            <div class="row">
+                <label>Sex:</label>
+                <span>Female</span>
+            </div>
+            <div class="row">
+                <label>Date of Birth:</label>
+                <span>1990-01-01</span>
+            </div>
+            <div class="row">
+                <label>Age:</label>
+                <span>69</span>
+            </div>
+            <div class="row">
+                <label>Address:</label>
+                <span>1234 Street, City, Country</span>
+            </div>
+            <div class="row">
+                <label>Email:</label>
+                <span>binibj@gmail.com</span>
+            </div>
+            <div class="row">
+                <label>Contact Number:</label>
+                <span>+63 949 8700 8888</span>
+            </div>
+            <div class="row">
+                <label>Emergency Contact Name:</label>
+                <span>Johnny Makasalanan</span>
+            </div>
+            <div class="row">
+                <label>Emergency Contact Number:</label>
+                <span>+63 949 8700 9999</span>
+            </div>
+            <div class="row">
+                <label>Relationship with Patient:</label>
+                <span>Brother</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-background"></div>
+
+    <div class="popup-update-profile">
+        <button class="close-btn"></button>
+        <div class="row">
+            <label>First Name: <input type="text" name="first_name"></label>
+            <label>Last Name: <input type="text" name="last_name"></label>
+        </div>
+        <div class="row">
+            <label>Sex: 
+                <select name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </label>
+            <label>Date of Birth: <input type="date" name="dob"></label>
+            <label>Age: <input type="text" name="age"></label>
+        </div>
+        <div class="row">
+            <label>Address: <input type="text" name="address"></label>
+        </div>
+        <div class="row">
+            <label>Email: <input type="email" name="email"></label>
+            <label>Contact Number: <input type="text" name="contact_number"></label>
+        </div>
+        <div class="row">
+            <label>Emergency Contact Name: <input type="text" name="emergency_contact_name"></label>
+            <label>Emergency Contact Number: <input type="text" name="emergency_contact_number"></label>
+            <label>Relationship with Patient: <input type="text" name="relationship"></label>
+        </div>
+        <button type="submit">Submit</button>
+    </div>
+    
+    <script src="menu.js"></script>
+    <script src="popup-update-profile.js"></script>
+
+</body>
+</html>
