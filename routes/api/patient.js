@@ -58,22 +58,22 @@ router.post('/addPatient', async (req, res) => {
 });
 
 //Updating PD Files
-router.put('/updatePatient/:patientID', (req, res) => {
-    const patientID = req.params.patientID;
+router.put('/updatePatient/:patientEmail', (req, res) => {
+    const patientEmail = req.params.patientEmail;
     const { patientPhone, patientAddress, patientECName , patientECPhone, patientECRelation } = req.body;
   
     // Check if patientID is provided
-    if (!patientID) {
+    if (!patientEmail) {
         return res.status(400).json({ success: false, message: 'Patient ID is required' });
     }
 
     const sqlQuery = `
         UPDATE patient 
         SET patientPhone = ?, patientAddress = ?, patientECName = ?, patientECPhone = ?, patientECRelation = ?
-        WHERE patientID = ?
+        WHERE patientEmail = ?
     `;
   
-    const values = [patientPhone, patientAddress, patientECName , patientECPhone, patientECRelation, patientID];
+    const values = [patientPhone, patientAddress, patientECName , patientECPhone, patientECRelation, patientEmail];
   
     databaseConn.query(sqlQuery, values, (error, results, fields) => {
         if (error) {

@@ -144,4 +144,29 @@ router.get('/viewdentist',(req,res) => {
     })
 });
 
+//Updating PD Files
+router.put('/updateDentist/:dentistEmail', (req, res) => {
+    const dentistEmail = req.params.dentistEmail;
+    const { dentistPhone, dentistAddress } = req.body;
+  
+    // Check if dentistID is provided
+    if (!dentistEmail) {
+        return res.status(400).json({ success: false, message: 'dentist ID is required' });
+    }
+
+    const sqlQuery = `UPDATE dentist SET dentistPhone = ?, dentistAddress = ? WHERE dentistEmail = ?`;
+  
+    const values = [dentistPhone, dentistAddress, dentistEmail];
+  
+    databaseConn.query(sqlQuery, values, (error, results, fields) => {
+        if (error) {
+            console.error('Error updating data in database:', error);
+            return res.status(500).json({ success: false, message: 'Error updating data in database' });
+        }
+        
+        res.status(200).json({ success: true, message: 'Data updated successfully' });
+    });
+  });
+
+
 module.exports = router;

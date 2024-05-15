@@ -84,23 +84,23 @@
     <div class="popup-update-profile">
         <button class="close-btn"></button>
         <div class="row">
-            <label>Address: <input type="text" name="address"></label>
+            <label>Address: <input id="UpdAddress" type="text" name="address"></label>
         </div>
         <div class="row">
-            <label>Contact Number: <input type="text" name="contact_number"></label>
+            <label>Contact Number: <input id="UpdPhone" type="text" name="contact_number"></label>
         </div>
         <div class="row">
-            <label>Emergency Contact Name: <input type="text" name="emergency_contact_name"></label>
-            <label>Emergency Contact Number: <input type="text" name="emergency_contact_number"></label>
-            <label>Relationship with Patient: <input type="text" name="relationship"></label>
+            <label>Emergency Contact Name: <input id="UpdECN" type="text" name="emergency_contact_name"></label>
+            <label>Emergency Contact Number: <input id="UpdECP" type="text" name="emergency_contact_number"></label>
+            <label>Relationship with Patient: <input id="UpdECR" type="text" name="relationship"></label>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" id="upd-btn">Submit</button>
     </div>
     
-    <script src="menu.js"></script>
-    <script src="popup-update-profile.js"></script>
+    
+    <script src="menu.js"></script>  
     <script src="patientprof.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-
+    <script src="popup-update-profile.js"></script>
 </body>
 </html>

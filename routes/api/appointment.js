@@ -6,12 +6,12 @@ var databaseConn = require ('../../config/database.js');
 //Request Appointment
 router.post('/reqApp', (req, res) => {
     req.body.status = req.body.status || "processing";
-    const { patientID, scheduleID, lastApp,takingMeds, ndMeds, appReason, appRemarks } = req.body;
+    const { patientID, scheduleID, lastApp,takingMeds, ndMeds, appReason} = req.body;
 
-    const sqlQuery = `INSERT INTO appointment (patientID, scheduleID, lastApp, takingMeds, ndMeds, appReason, appRemarks ) 
+    const sqlQuery = `INSERT INTO appointment (patientID, scheduleID, lastApp, takingMeds, ndMeds, appReason) 
                       VALUES (?, ?, ?, ?, ?, ?, ?)`;
 
-    const values = [patientID, scheduleID, lastApp,takingMeds, ndMeds, appReason, appRemarks];
+    const values = [patientID, scheduleID, lastApp,takingMeds, ndMeds, appReason];
 
     databaseConn.query(sqlQuery, values, (error, results, fields) => {
         if (error) {

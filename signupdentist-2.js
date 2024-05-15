@@ -19,14 +19,6 @@ document.getElementById('signup-btn2').addEventListener('click', async function(
         dentistAddress: dAddress,
         dentistPhone: dPhone,
     };
-    alert(dfirstName);
-    alert(document.getElementById('signup-password').value);
-    alert(document.getElementById('signup-email').value);
-    alert(dlastName);
-    alert(dAddress);
-    alert(dPhone);
-    alert(dGender);
-    alert(dDOB);
 
     try {
         // Send AJAX request

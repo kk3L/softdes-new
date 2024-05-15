@@ -1,8 +1,6 @@
 function fetchAppointments() {
    const selectedschedID = localStorage.getItem('selectedschedID')
    const selectedID = localStorage.getItem('selectedID')
-   console.log(selectedschedID)
-   console.log(selectedID)
    fetch(`http://localhost:5000/dentistschedule/viewsched/${selectedschedID}`)
       .then(response => {
          if (!response.ok) {

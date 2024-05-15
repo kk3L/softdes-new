@@ -31,24 +31,18 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); 
         const pAddress = document.getElementById('UpdAddress').value;
         const pPhone = document.getElementById('UpdPhone').value;
-        const pECN = document.getElementById('UpdECN').value;
-        const pECR = document.getElementById('UpdECR').value;
-        const pECP = document.getElementById('UpdECP').value;
     
         // Ensure pdRecord and PD_ID are defined
         const selectedEmail = localStorage.getItem('email')
 
-        fetch(`http://localhost:5000/patient/updatePatient/${selectedEmail}`, {
+        fetch(`http://localhost:5000/dentist/updateDentist/${selectedEmail}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "patientAddress": pAddress,
-                "patientPhone": pPhone,
-                "patientECName": pECN,
-                "patientECPhone": pECR,
-                "patientECRelation": pECP
+                "dentistAddress": pAddress,
+                "dentistPhone": pPhone,
             })
         })
         .then(response => {
