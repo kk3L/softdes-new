@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #c5fffc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin-top: 50px;
+}   
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+.profile-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 55px;
+    height: 55px;
+    background-color: #585555;
+    border-radius: 50%;
+    z-index: 1010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-box {
+    position: fixed;
+    top: 90px;
+    left: 10px;
+    width: 200px;
+    background-color: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1010;
+}
+
+.menu-box a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-box a:hover {
+    background-color: #f0f0f03a;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    z-index: 1010;
+}
+
+.menu-btn_burger {
+    width: 50px;
+    height: 6px;
+    background: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before {
+    transform: translateY(-15px);
+}
+
+.menu-btn_burger::after {
+    transform: translateY(15px);
+}
+
+/*animation*/
+.menu-btn.open .menu-btn_burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn_burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn_burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.appointment-title {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    font-size: 35px;
+    color: #333;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.appointment-tabs-container {
+    position: absolute;
+    top: 180px;
+    left: 20px;
+    width: calc(100% - 40px);
+    z-index: 1000;
+    margin-top: 30px;
+}
+
+.appointment-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px ;
+}
+
+.tab-divider {
+    width: 50px;
+    height: 100%;
+    background-color: #c5fffc;
+    margin: 0 10px;
+}
+
+.appointment-tab {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 50px 120px;
+    background-color: #585555;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #ba9536;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.appointment-tab a {
+    color: #ba9536;
+    text-decoration: none;
+}
+
+.appointment-tab:last-child {
+    margin-right: 0;
+}
+
+.appointment-tab:hover{
+    background-color: #f0f0f0;
+}
+
+.dentist-info {
+    color: #ba9536;
+    margin-top: 5px;
+}
+

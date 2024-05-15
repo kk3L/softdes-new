@@ -86,4 +86,12 @@ router.get('/viewHistory',(req,res) => {
     })
 });
 
+router.get('/view/:appID',(req,res) => {
+  sqlQuery = `SELECT * FROM appointment WHERE appID = ?`;
+  databaseConn.query (sqlQuery, function(error,results,fields){
+     if(error) throw error;
+     res.status(200).json(results)
+  })
+});
+
 module.exports = router;

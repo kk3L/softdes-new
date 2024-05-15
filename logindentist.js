@@ -24,7 +24,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     })
     .then(data => {
        if (data.success) {
-       window.location.href = 'appointments.html';
+       window.location.href = 'dentist-appointment.html';
        } else {
           console.log(data.message);
        }

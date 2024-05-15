@@ -57,58 +57,33 @@ router.post('/addPatient', async (req, res) => {
     }
 });
 
-router.post('/updatePatient', async (req, res) => {
-    try {
-        const { patientID, patientFirstName, patientLastName, patientAge, patientDOB, patientGender, patientAddress, patientPhone, patientEmail, patientECName, patientECRelation, patientECPhone, password } = req.body;
-
-        // Prepare the fields and values to update
-        let fields = [];
-        let values = [];
-
-        if (patientFirstName) { fields.push('patientFirstName = ?'); values.push(patientFirstName); }
-        if (patientLastName) { fields.push('patientLastName = ?'); values.push(patientLastName); }
-        if (patientAge) { fields.push('patientAge = ?'); values.push(patientAge); }
-        if (patientDOB) { fields.push('patientDOB = ?'); values.push(patientDOB); }
-        if (patientGender) { fields.push('patientGender = ?'); values.push(patientGender); }
-        if (patientAddress) { fields.push('patientAddress = ?'); values.push(patientAddress); }
-        if (patientPhone) { fields.push('patientPhone = ?'); values.push(patientPhone); }
-        if (patientEmail) { fields.push('patientEmail = ?'); values.push(patientEmail); }
-        if (patientECName) { fields.push('patientECName = ?'); values.push(patientECName); }
-        if (patientECRelation) { fields.push('patientECRelation = ?'); values.push(patientECRelation); }
-        if (patientECPhone) { fields.push('patientECPhone = ?'); values.push(patientECPhone); }
-        if (password) { 
-            const hash = await bcrypt.hash(password.toString(), 10); 
-            fields.push('password = ?'); 
-            values.push(hash); 
-        }
-
-        // Ensure there are fields to update
-        if (fields.length === 0) {
-            return res.status(400).json({ success: false, message: 'No fields to update' });
-        }
-
-        values.push(patientID); // Add patientID to the values array
-
-        const sqlQuery = `UPDATE patient SET ${fields.join(', ')} WHERE patientID = ?`;
-
-        databaseConn.query(sqlQuery, values, (error, results, fields) => {
-            if (error) {
-                console.error('Error updating data in the database:', error);
-                return res.status(500).json({ success: false, message: 'Error updating data in the database' });
-            }
-
-            if (results.affectedRows === 0) {
-                return res.status(404).json({ success: false, message: 'Patient not found' });
-            }
-
-            res.status(200).json({ success: true, message: 'Data updated successfully' });
-        });
-
-    } catch (error) {
-        console.error('Error:', error); 
-        res.status(500).json({ success: false, message: 'Internal server error' });
+//Updating PD Files
+router.put('/updatePatient/:patientID', (req, res) => {
+    const patientID = req.params.patientID;
+    const { patientPhone, patientAddress, patientECName , patientECPhone, patientECRelation } = req.body;
+  
+    // Check if patientID is provided
+    if (!patientID) {
+        return res.status(400).json({ success: false, message: 'Patient ID is required' });
     }
-});
+
+    const sqlQuery = `
+        UPDATE patient 
+        SET patientPhone = ?, patientAddress = ?, patientECName = ?, patientECPhone = ?, patientECRelation = ?
+        WHERE patientID = ?
+    `;
+  
+    const values = [patientPhone, patientAddress, patientECName , patientECPhone, patientECRelation, patientID];
+  
+    databaseConn.query(sqlQuery, values, (error, results, fields) => {
+        if (error) {
+            console.error('Error updating data in database:', error);
+            return res.status(500).json({ success: false, message: 'Error updating data in database' });
+        }
+        
+        res.status(200).json({ success: true, message: 'Data updated successfully' });
+    });
+  });
 
 //login
 router.post('/loginPatient', async (req, res) => {

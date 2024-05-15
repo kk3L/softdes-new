@@ -1,40 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inside Appointment</title>
-    <link rel="stylesheet" href="inside-appointment.css">
-</head>
-<body>
-    <div class="top-bar"></div>
-    <div class="profile-icon"></div>
-    <div class="menu-btn">
-        <div class="menu-btn_burger"></div>
-    </div>
-    <div class="menu-box">
-        <a href="home.html">Home</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="My Dentists">My Dentists</a>
-        <a href="index.html">Log Out</a>
-    </div>
-    <div class="appointment-title">Available Appointments</div>
-    <div class="appointment-container">
-        <div class="appointment-card">
-            <div class="appointment-number">Appointment #1234</div>
-            <div class="appointment-detail">
-                <p>Date and Time: <span>May 12, 2024, 10:00 AM</span></p>
-                <p>Dentist: <span>Dr. Salsalero</span></p>
-                <p>Type of Service/s Available: <span>Braces, Cleaning, Implants, Pasta</span></p>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inside Appointment</title>
+        <link rel="stylesheet" href="inside-appointment.css">
+    </head>
+    <body>
+        <div class="top-bar"></div>
+        <div class="profile-icon" onclick="window.location.href='profile.html'"></div>
+        <div class="menu-btn">
+            <div class="menu-btn_burger"></div>
+        </div>
+        <div class="menu-box">
+            <a href="home.html">Home</a>
+            <a href="appointments.html">Appointments</a>
+            <a href="index.html" onclick="localStorage.clear()">Log Out</a>
+        </div>
+        <div class="appointment-title">Available Appointments</div>
+        <div class="appointment-container">
+            <div class="appointment-card">
+                <p class="appointment-number">Set your Appointment with:</p>
+                <div class="appointment-detail">
+                    <h1>Dentist: <span id="dentistName">a</span></h1>
+                    <p>Date and Time: <span id="datetime">a</span></p>
+                    <p>Type of Service/s Available: <span id="serviceType">a</span></p>
+                    <p>Contact Number: <span id="dentistPhone">a</span></p>
+                    <p>Email: <span id="dentistEmail">a</span></p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="appointment-options">
-        <div class="option-card1">Request Appointment</div>
-        <div class="option-card2">View Scheduled Appointment</div>
-    </div>
+        <div class="appointment-options">
+            <div class="option-card1">Request Appointment</div>
+            <div class="option-card2">View Scheduled Appointment</div>
+        </div>
 
-    <script src="menu.js"></script>
+        <script src="menu.js"></script>
+        <script src="inside-appoinment.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-</body>
-</html>
+    </body>
+    </html>

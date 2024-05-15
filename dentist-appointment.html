@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="top-bar"></div>
-    <div class="profile-icon"></div>
+    <div class="profile-icon" onclick="window.location.href='dentistprofile.html'"></div>
     <a href="#" class="post-appointment-btn">Post an Appointment</a>
     <div class="menu-btn">
         <div class="menu-btn_burger"></div>
@@ -17,7 +17,7 @@
         <a href="dhome.html">Home</a>
         <a href="dentist-appointment.html">Appointments</a>
         <a href="Requests">Requests</a>
-        <a href="dentistlogin.html">Log Out</a>
+        <a href="dentistlogin.html" onclick="localStorage.clear()">Log Out</a>
     </div>
     <div class="appointment-title">Appointments</div>
     
@@ -30,10 +30,10 @@
             <div class="popup-content">
                 <form id="appointmentForm">
                     <label for="date">Date of Appointment:</label>
-                    <input type="date" id="date" name="date" required>
+                    <input type="date" id="schedDate" name="date" required>
 
                     <label for="day">Appointment Day:</label>
-                    <input type="text" id="day" name="day" required>
+                    <input type="text" id="schedDay" name="day" required>
 
                     <div class="time-inputs">
                         <div class="time-input">
@@ -47,16 +47,16 @@
                     </div>
 
                     <label for="services">Type of service/s available:</label>
-                    <textarea id="services" name="services" rows="4" required></textarea>
+                    <textarea id="serviceType" name="services" rows="4" required></textarea>
 
-                    <button type="submit">Submit</button>
+                    <button id ="appsubmit" type="submit">Submit</button>
                 </form>
             </div>
         </div>
     </div>
 
     <script src="menu.js"></script>
-
+    <script src="uploadappointment.js"></script>
     <script> /*appointment creation form*/
         const postAppointmentBtn = document.querySelector('.post-appointment-btn');
         const popupOverlay = document.getElementById('popupOverlay');

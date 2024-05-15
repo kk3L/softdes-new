@@ -38,5 +38,22 @@ router.get('/showApp', (req, res) => {
     });
   });
 
+
+  
+router.get('/viewsched/:scheduleID', (req, res) => {
+  const scheduleID = req.params.scheduleID;
+  
+  const sqlQuery = `SELECT * FROM dentistschedule WHERE scheduleID = ?`;
+  
+  databaseConn.query(sqlQuery, [scheduleID], function(error, results, fields) {
+    if (error) {
+      console.error('Error executing SQL query', error);
+      return res.status(500).json({ success: false, message: "Error executing SQL query" });
+    }
+    console.log('SQL query executed successfully');
+    res.status(200).json(results);
+  });
+});
+
   
 module.exports = router;

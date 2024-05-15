@@ -1,7 +1,7 @@
 //IN PROGRESS
 
 // Event listener for the request button
-document.querySelector("#req").addEventListener("click", async function(event) {
+document.querySelector(".option-card1").addEventListener("click", async function(event) {
     event.preventDefault(); 
     const selectedappID = localStorage.getItem('selectedappID');
     const email = localStorage.getItem('email');

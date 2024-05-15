@@ -13,9 +13,9 @@
         <div class="menu-btn_burger"></div>
     </div>
     <div class="menu-box">
-        <a href="home.html">Home</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="index.html" onclick="localStorage.clear()">Log Out</a>
+        <a href="dhome.html">Home</a>
+        <a href="dentist-appointments.html">Appointments</a>
+        <a href="dentistlogin.html" onclick="localStorage.clear()">Log Out</a>
     </div>
 
     <div class="content">
@@ -49,10 +49,6 @@
                 <span id="DOB">1990-01-01</span>
             </div>
             <div class="row">
-                <label>Age:</label>
-                <span id="Age">69</span>
-            </div>
-            <div class="row">
                 <label>Address:</label>
                 <span id="Address">1234 Street, City, Country</span>
             </div>
@@ -63,18 +59,6 @@
             <div class="row">
                 <label>Contact Number:</label>
                 <span id="Phone">+63 949 8700 8888</span>
-            </div>
-            <div class="row">
-                <label>Emergency Contact Name:</label>
-                <span id="ECN">Johnny Makasalanan</span>
-            </div>
-            <div class="row">
-                <label>Emergency Contact Number:</label>
-                <span id="ECP">+63 949 8700 9999</span>
-            </div>
-            <div class="row">
-                <label>Relationship with Patient:</label>
-                <span id="ECR">Brother</span>
             </div>
         </div>
     </div>
@@ -89,17 +73,12 @@
         <div class="row">
             <label>Contact Number: <input type="text" name="contact_number"></label>
         </div>
-        <div class="row">
-            <label>Emergency Contact Name: <input type="text" name="emergency_contact_name"></label>
-            <label>Emergency Contact Number: <input type="text" name="emergency_contact_number"></label>
-            <label>Relationship with Patient: <input type="text" name="relationship"></label>
-        </div>
         <button type="submit">Submit</button>
     </div>
     
     <script src="menu.js"></script>
     <script src="popup-update-profile.js"></script>
-    <script src="patientprof.js"></script>
+    <script src="dentistprof.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 </body>

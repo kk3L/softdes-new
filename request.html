@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appointments</title>
-    <link rel="stylesheet" href="appointments.css">
+    <title>Requesting Appointments</title>
+    <link rel="stylesheet" href="request.css">
 </head>
 <body>
     <div class="top-bar"></div>
-    <div class="profile-icon" onclick="window.location.href='profile.html'"></div>
+    <div class="profile-icon"></div>
     <div class="menu-btn">
         <div class="menu-btn_burger"></div>
     </div>
     <div class="menu-box">
-        <a href="home.html">Home</a>
-        <a href="appointments.html">Appointments</a>
-        <a href="index.html" onclick="localStorage.clear()">Log Out</a>
+        <a href="dhome.html">Home</a>
+        <a href="dentist-appointment.html">Appointments</a>
+        <a href="request.html">Requests</a>
+        <a href="dentistlogin.html" onclick="localStorage.clear()">Log Out</a>
     </div>
-    <div class="appointment-title">Available Appointments</div>
+    <div class="appointment-title">Requesting Appointments</div>
     <div class="appointment-tabs-container">
 
         <div class="appointment-tabs">
             <!--
             <div class="appointment-row">
                 <div class="appointment-tab">
-                    <h2 class="dentist">Dentist: Dentist: Dr. Hanz Na MissAngEx.</h2>
+                    <h2 class="patient">Dentist: Dentist: Dr. Hanz Na MissAngEx.</h2>
                     <a class="schedule"> Schedule - Date/Time</a>
-                    <button class="sched-app">Schedule an Appointment</button>
+                    <button class="appOptions">Appointment Options</button>
                 </div>  
             </div>
             -->
@@ -35,7 +36,7 @@
     </div>
     
     <script src="menu.js"></script>
-    <script src="appointmenttab.js"></script>
+    <script src="requesttab.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
 </body>

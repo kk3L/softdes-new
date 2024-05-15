@@ -1,5 +1,4 @@
-// Event listener for the publish button
-document.querySelector(".option-card1").addEventListener("click", async function(event) {
+document.getElementById("appsubmit").addEventListener("click", async function(event) {
     event.preventDefault(); // Prevent default form submission behavior
 
     // Get form values from the first form
@@ -16,13 +15,10 @@ document.querySelector(".option-card1").addEventListener("click", async function
         startTime: startTime,
         endTime: endTime
     }
-    alert(schedDate);
-    alert(serviceType);
-    alert(schedDay);
-    alert(startTime);
-    alert(endTime);
 
-    const dentistEmail = localStorage.getItem('email')
+    const dentistEmail = localStorage.getItem('email');
+
+    let dentistID;
 
     //fetching email
     try {
@@ -32,56 +28,61 @@ document.querySelector(".option-card1").addEventListener("click", async function
         }
 
         const data = await response.json();
+        console.log(data);
 
         if (!Array.isArray(data) || data.length === 0) {
             alert('No data found');
             return;
         }
 
-        const dentistID = data[0].dentistID;
+        dentistID = data[0].dentistID;
 
-        if (!dentistID) { // fixed status to dentistID
+        if (!dentistID) {
             alert('Dentist ID not found in database');
             return;
+        } else {
+            alert(dentistID);
         }
     } catch (error) {
         // Handle any errors
         console.error('Error:', error);
+        return; // Exit the function if there's an error
     }
-        
+
     try {
-        const jsonData = JSON.stringify(requestData);
-        const response = await fetch('http://localhost:5000/dentistschedule/addApp', { // fixed parentheses placement
+        const response = await fetch('http://localhost:5000/dentistschedule/addApp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: jsonData
+            body: JSON.stringify({
+                scheduleDate: schedDate,
+                serviceType: serviceType,
+                scheduleDay: schedDay,
+                startTime: startTime,
+                endTime: endTime,
+                dentistID: dentistID
+            })
         });
-        // Log the response for debugging
+
         console.log('Response:', response);
-        // Check if response is ok
+
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-    
-        // Parse response JSON
+
         const data = await response.json();
-    
-        // Log the parsed data for debugging
+
         console.log('Parsed data:', data);
-    
-        // Check if registration was successful
+
         if (data.success) {
-            // Successful registration
             if (data.alreadyAdded) {
-                alert('This record already exists.'); // Alert if record already exists
+                alert('This record already exists.');
             } else {
                 alert('Successfully registered');
                 window.location.reload();
             }
         }
-        
     } catch (error) {
         // Handle any errors
         console.error('Error:', error);

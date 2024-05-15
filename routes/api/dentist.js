@@ -103,7 +103,7 @@ router.post('/loginDentist', async (req, res) => {
 
 
 router.get('/checkEmail/:dentistEmail', (req, res) => {
-    const email = req.params.patientEmail; // Extract email from request parameters
+    const email = req.params.dentistEmail; // Extract email from request parameters
     
     const sqlQuery = `SELECT * FROM dentist WHERE dentistEmail = ?`;
     

@@ -56,7 +56,8 @@ function fetchAppointments() {
 
                         // Add click event listener to each appointment container
                         button.addEventListener('click', () => {
-                            localStorage.setItem('selectedappID', densched.appID);
+                            localStorage.setItem('selectedschedID', densched.scheduleID);
+                            localStorage.setItem('selectedID', name.dentistID);
                             window.location.href = 'inside-appointment.html';
                         });
 
