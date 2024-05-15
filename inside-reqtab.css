@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #c5fffc;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+.settings-icon {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 55px;
+    height: 55px;
+    background-color: #585555;
+    border-radius: 50%;
+    z-index: 1010;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-box {
+    position: fixed;
+    top: 90px;
+    left: 10px;
+    width: 200px;
+    background-color: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1010;
+}
+
+.menu-box a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-box a:hover {
+    background-color: #f0f0f03a;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    z-index: 1010;
+}
+
+.menu-btn_burger {
+    width: 50px;
+    height: 6px;
+    background: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: #585555;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before {
+    transform: translateY(-15px);
+}
+
+.menu-btn_burger::after {
+    transform: translateY(15px);
+}
+
+/*animation*/
+.menu-btn.open .menu-btn_burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn_burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn_burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.appointment-title {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    font-size: 35px;
+    color: #333;
+    font-weight: bold;
+    z-index: 1000;
+}
+
+.appointment-container {
+    position: absolute;
+    top: 190px;
+    left: 200px;
+    width: 800px;
+    height: 600px;
+    background-color: #585555;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ba9536;
+}
+
+.appointment-card {
+    margin-bottom: 20px;
+}
+
+.appointment-number {
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.appointment-detail p {
+    margin: 30px 0;
+    font-size: 25px;
+}
+
+.appointment-detail span {
+    font-weight: bold;
+}
+
+.appointment-options {
+    position: absolute;
+    top: 380px;
+    right: 420px;
+    width: 400px;
+    height: 170px;
+    background-color: #585555;
+    padding: 20px;
+    border-radius: 10px;
+    color: #ba9536;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.option-card1 {
+    background-color: #ba9536;
+    color: white;
+    padding: 10px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+.option-card2 {
+    background-color: #ba9536;
+    color: white;
+    padding: 10px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+.option-card1:hover {
+    background-color: #a0845c;
+} 
+.option-card2:hover {
+    background-color: #a0845c;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn::before,
+.close-btn::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: #fff;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.close-btn::before {
+    transform: rotate(45deg);
+}
+
+.close-btn::after {
+    transform: rotate(-45deg);
+}
+
+.popup-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1099;
+}
+
+.popup-background.show {
+    display: block;
+}
+
+.popup-request-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px; 
+    width: 90%; 
+    background: #585555;
+    color: #ba9536;
+    padding: 30px; 
+    border-radius: 15px;
+    z-index: 1100;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.popup-request-form .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px; 
+}
+
+.popup-request-form .row label {
+    flex: 1 1 45%; 
+    margin: 5px 10px; 
+}
+
+.popup-request-form input[type="text"],
+.popup-request-form input[type="email"],
+.popup-request-form input[type="date"],
+.popup-request-form textarea {
+    width: 100%;
+    padding: 10px; 
+}
+
+.popup-request-form .row:nth-child(2) label {
+    flex: 1 1 22%;
+}
+
+.popup-request-form .row:nth-child(2) label:nth-child(2) {
+    flex: 0 0 40%; 
+}
+
+.popup-request-form button[type="submit"] {
+    width: 100%; 
+    margin-top: 20px; 
+    padding: 12px 0; 
+    background-color: #ba9536;
+    color: #3f3f3f;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.popup-request-form button[type="submit"]:hover {
+    background-color: #a0845c; 
+}
+
+.popup-request-form label {
+    display: block; 
+}

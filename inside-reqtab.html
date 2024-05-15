@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requesting Appointments</title>
+    <link rel="stylesheet" href="inside-reqtab.css">
+</head>
+<body>
+    <div class="top-bar"></div>
+    <div class="settings-icon" onclick="window.location.href='dentistprofile.html'"></div>
+    <div class="menu-btn">
+        <div class="menu-btn_burger"></div>
+    </div>
+    <div class="menu-box">
+        <a href="dhome.html">Home</a>
+        <a href="dentist-appointment.html">Appointments</a>
+        <a href="request.html">Requests</a>
+        <a href="dentistlogin.html">Log Out</a>
+    </div>
+    <div class="appointment-title">Requesting Appointments</div>
+    <div class="appointment-container">
+        <div class="appointment-card">
+            <p class="appointment-number">Set your Appointment with:</p>
+            <div class="appointment-detail">
+                <h1>Patient: <span id="patientName">Ken Ramos</span></h1>
+                <p>Date and Time: <span id="datetime">May 12, 2024, 10:00 AM</span></p>
+                <p>Last Dentist Appointment: <span id="lastApp">Braces, Cleaning, Implants, Pasta</span></p>
+                <p>Taking Medications?: <span id="takingMeds">a</span></p>
+                <p>Name and Dosage of Medication: <span id="ndMeds">N/A</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="appointment-options">
+        <div id ="option-card1" class="option-card1">Approve Appointment</div>
+        <div id ="option-card2"class="option-card2">Cancel Request</div>
+    </div>
+    
+    <div class="popup-background"></div>
+    <div class="popup-request-form">
+        <button class="close-btn"></button>
+  
+        <div class="row">
+            <label>Appointment Remarks: <textarea id="appRemarks" name="appointmentremarks" style="height: 50px;"></textarea></label>
+        </div>
+        <button type="submit" id="remarks-btn">Submit</button>
+    </div>
+    <script src="menu.js"></script>
+    <script src="inside-reqtab.js"></script>
+    <script src="inside-req-actions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</body>
+</html>
