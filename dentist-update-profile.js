@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const pAddress = document.getElementById('UpdAddress').value;
         const pPhone = document.getElementById('UpdPhone').value;
     
-        // Ensure pdRecord and PD_ID are defined
         const selectedEmail = localStorage.getItem('email')
 
         fetch(`http://localhost:5000/dentist/updateDentist/${selectedEmail}`, {
