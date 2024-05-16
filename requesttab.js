@@ -33,6 +33,9 @@ async function fetchAppointments() {
             }
 
             const schedule = schedules.find(sched => sched.scheduleID === appstat.scheduleID);
+            if (schedule.schedAvail !== 'available'){
+                return;
+            }
             if (!schedule) {
                 console.error(`Schedule ID ${appstat.scheduleID} not found`);
                 return;
@@ -59,6 +62,8 @@ async function fetchAppointments() {
             // Add click event listener to each appointment container
             button.addEventListener('click', () => {
                 localStorage.setItem('selectedappID', appstat.appID);
+                localStorage.setItem('selectedID', patient.patientID);
+                alert(appstat.appID)
                 window.location.href = 'inside-reqtab.html';
             });
 

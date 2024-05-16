@@ -310,3 +310,84 @@ body {
 .popup-request-form label {
     display: block; 
 }
+
+
+
+/*misskona si khayzel - vargas*/
+.close-btn1 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.close-btn1::before,
+.close-btn1::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background-color: #fff;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.close-btn1::before {
+    transform: rotate(45deg);
+}
+
+.close-btn1::after {
+    transform: rotate(-45deg);
+}
+
+.popup-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1099;
+}
+
+.popup-background.show {
+    display: block;
+}
+
+.view-status {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px; 
+    width: 90%; 
+    background: #585555;
+    color: #ba9536;
+    padding: 30px; 
+    border-radius: 15px;
+    z-index: 1100;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    text-align: left;
+}
+
+.view-status .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px; 
+}
+
+.view-status .row label {
+    flex: 1 1 45%; 
+    margin: 5px 10px; 
+}

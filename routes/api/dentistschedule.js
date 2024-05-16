@@ -55,5 +55,25 @@ router.get('/viewsched/:scheduleID', (req, res) => {
   });
 });
 
-  
+router.put('/update/:scheduleID', (req, res) => {
+  const scheduleID = req.params.scheduleID;
+
+  const schedAvail = req.body.schedAvail; 
+
+  const sqlQuery = `UPDATE dentistschedule SET schedAvail = ? WHERE scheduleID = ?`;
+
+  databaseConn.query(sqlQuery, [schedAvail, scheduleID], (error, results, fields) => {
+      if (error) {
+          console.error('Error updating borrow record:', error);
+          return res.status(500).json({ success: false, message: 'Error updating borrow record' });
+      }
+
+      if (results.affectedRows === 0) {
+
+          return res.status(404).json({ success: false, message: 'Borrow record not found' });
+      }
+
+      res.status(200).json({ success: true, message: 'Borrow record updated successfully' });
+  });
+}); 
 module.exports = router;

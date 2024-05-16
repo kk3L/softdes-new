@@ -24,7 +24,8 @@ document.getElementById('login-form').addEventListener('submit', function(event)
    })
    .then(data => {
       if (data.success) {
-      window.location.href = 'appointments.html';
+         localStorage.setItem('email', email);
+         window.location.href = 'home.html';
       } else {
          console.log(data.message);
       }

@@ -9,7 +9,7 @@ router.post('/reqApp', (req, res) => {
     const { patientID, scheduleID, lastApp,takingMeds, ndMeds, appReason} = req.body;
 
     const sqlQuery = `INSERT INTO appointment (patientID, scheduleID, lastApp, takingMeds, ndMeds, appReason) 
-                      VALUES (?, ?, ?, ?, ?, ?, ?)`;
+                      VALUES (?, ?, ?, ?, ?, ?)`;
 
     const values = [patientID, scheduleID, lastApp,takingMeds, ndMeds, appReason];
 
@@ -89,6 +89,15 @@ router.get('/viewHistory',(req,res) => {
 router.get('/view/:appID',(req,res) => {
   sqlQuery = `SELECT * FROM appointment WHERE appID = ?`;
   databaseConn.query (sqlQuery, function(error,results,fields){
+     if(error) throw error;
+     res.status(200).json(results)
+  })
+});
+
+router.get('/viewsomething/:scheduleID',(req,res) => {
+  const scheduleID = req.params.scheduleID;
+  sqlQuery = `SELECT * FROM appointment WHERE scheduleID = ?`;
+  databaseConn.query (sqlQuery, [scheduleID], function(error,results,fields){
      if(error) throw error;
      res.status(200).json(results)
   })

@@ -152,4 +152,18 @@ router.get('/view',(req,res) => {
        res.status(200).json(results)
     })
 });
+
+//View
+router.get('/viewPatient/:patientID', (req, res) => {
+    const patientID = req.params.patientID;
+    const sqlQuery = `SELECT * FROM patient WHERE patientID = ?`; // Use parameterized query to prevent SQL injection
+
+    databaseConn.query(sqlQuery, [patientID], function(error, results, fields) {
+        if (error) {
+            throw error;
+        }
+        res.status(200).json(results);
+    });
+});
+
 module.exports = router;

@@ -15,7 +15,7 @@
     <div class="menu-box">
         <a href="home.html">Home</a>
         <a href="appointments.html">Appointments</a>
-        <a href="index.html">Log Out</a>
+        <a href="index.html" onclick="localStorage.clear()">Log Out</a>
     </div>
     <div class="appointment-title">Available Appointments</div>
     <div class="appointment-container">
@@ -32,10 +32,9 @@
     </div>
     <div class="appointment-options">
         <div class="option-card1">Request Appointment</div>
-        <div class="option-card2">View Scheduled Appointment</div>
+        <div class="option-card2">View Appointment Status</div>
     </div>
     
-    <div class="popup-background"></div>
     <div class="popup-request-form">
         <button class="close-btn"></button>
        
@@ -49,7 +48,6 @@
             <label>Are you currently taking any Medication?</label>
             <label style="margin-right: 170px;">
                 <input type="checkbox" name="taking_medication" id="takingMeds" value="Yes"> Yes
-                <input type="checkbox" name="taking_medication" id="takingMeds" value="No"> No
             </label>
         </div>
         <div class="row">
@@ -57,6 +55,23 @@
         </div>
         <button type="submit" id="req-btn">Submit</button>
     </div>
+
+    <div class="popup-background" style="display:none;">
+        <div class="view-status" style="display:none;">
+            <button class="close-btn1"></button>
+           
+            <div class="row">
+                <label id="scheduleDate">Date of Appointment:</label>
+            </div>
+            <div class="row">
+                <label id="scheduleTime">Time:</label> 
+            </div>
+            <div class="row">
+                <label id="status">Status:</label>
+            </div>
+        </div>
+    </div>
+    
 
     <script src="menu.js"></script>
     <script src="inside-appoinment.js"></script>
