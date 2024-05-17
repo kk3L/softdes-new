@@ -64,6 +64,7 @@ document.getElementById('option-card1').addEventListener("click", function (even
         console.error('Error:', error);
         // Handle error if needed
     });
+    alert('Appointment Approved.')
 });
 
 
@@ -94,6 +95,7 @@ document.getElementById('option-card2').addEventListener("click", function (even
         console.error('Error:', error);
         // Handle error if needed
     });
+    alert('Appointment Cancelled.')
 });
 
 
